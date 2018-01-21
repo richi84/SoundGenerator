@@ -1,0 +1,41 @@
+<div class="composer">
+  <div *ngIf="id; else showButton">
+      <div *ngIf="percentage<100; else showFinished">
+        <p>Creating file. Please wait...</p>
+        <div class="progressbarbox">
+          <div class="progressbar"
+             [style.width]="percentage + '%'">
+           </div>
+         </div>
+      </div>
+      <ng-template #showFinished><p>Creating file finished.</p></ng-template>
+  </div>
+
+  <ng-template #showButton>
+    <div>
+      <div>
+        <input [(ngModel)]="songOption.isTrack1Enabled" type="checkbox"/>
+        Enable track 1
+      </div>
+      <div>
+        <input [(ngModel)]="songOption.isTrack2Enabled" type="checkbox"/>
+        Enable track 2
+      </div>
+      <div>
+        <input [(ngModel)]="songOption.isTrack3Enabled" type="checkbox"/>
+        Enable track 3 (Bass)
+      </div>
+    </div>
+    <a (click)="onBuild()">Generate File</a>
+  </ng-template>
+
+  <div *ngIf="percentage==100">
+    <div>
+      <audio controls src="/{{id}}.wav"></audio>
+    </div>
+    <div>
+      <a href="/{{id}}.wav">Download</a>
+      <a (click)="onNew()">New file</a>
+    </div>
+  </div>
+</div>

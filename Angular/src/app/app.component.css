@@ -1,0 +1,9 @@
+.titlebar {
+  background-color: #DDD;
+  overflow:hidden;
+  padding: 20px;
+}
+
+.info {
+  padding: 20px;
+}

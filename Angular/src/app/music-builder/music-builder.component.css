@@ -1,0 +1,20 @@
+.composer{
+  padding: 20px;
+}
+
+.progressbar {
+  background-color: #db8a29;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progressbarbox {
+  width: 300px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #DDD;
+}
+
+audio {
+  display: inline;
+}

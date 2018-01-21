@@ -1,0 +1,42 @@
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #333;
+}
+body, input[text], button {
+  color: #db8a29;
+  font-family: Cambria, Georgia;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+  color: #db8a29;
+}
+a:visited, a:link {
+  color: #db8a29;
+}
+a:hover {
+  color: #ffcf70;
+  background-color: #51401f;
+}
+a.active {
+  color: #db8a29;
+}
