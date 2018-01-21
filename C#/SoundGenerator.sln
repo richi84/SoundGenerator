@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundGenerator", "SoundGenerator\SoundGenerator.csproj", "{3E13E6AC-E87F-434F-BD1E-3C5A092072CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{9081AB36-9DE0-4713-917B-27B65C6C76CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicLib", "MusicLib\MusicLib.csproj", "{B466CA80-1286-406D-AD86-36119020235B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E13E6AC-E87F-434F-BD1E-3C5A092072CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E13E6AC-E87F-434F-BD1E-3C5A092072CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E13E6AC-E87F-434F-BD1E-3C5A092072CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E13E6AC-E87F-434F-BD1E-3C5A092072CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9081AB36-9DE0-4713-917B-27B65C6C76CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9081AB36-9DE0-4713-917B-27B65C6C76CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9081AB36-9DE0-4713-917B-27B65C6C76CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9081AB36-9DE0-4713-917B-27B65C6C76CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B466CA80-1286-406D-AD86-36119020235B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B466CA80-1286-406D-AD86-36119020235B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B466CA80-1286-406D-AD86-36119020235B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B466CA80-1286-406D-AD86-36119020235B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A28E226C-E8CD-4A9A-A51C-5F779F05D64E}
+	EndGlobalSection
+EndGlobal
