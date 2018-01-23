@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicGeneratorClientService } from '../music-generator-client.service'
-import {Observable} from 'rxjs/Rx';
+import { MusicGeneratorClientService } from '../music-generator-client.service';
 import { SongOption } from '../song-option';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
 
 @Component({
   selector: 'app-music-builder',
@@ -14,33 +15,33 @@ export class MusicBuilderComponent implements OnInit {
   percentage: number;
   subscription;
 
-  //Song options:
+  // Song options:
   songOption: SongOption = {
     isTrack1Enabled: true,
     isTrack2Enabled: true,
     isTrack3Enabled: true
-  }
+  };
 
   constructor(private musicGeneratorClinet: MusicGeneratorClientService) { }
 
   ngOnInit() {
   }
 
-  onBuild(){
-    this.percentage=0;
+  onBuild() {
+    this.percentage = 0;
     this.runBuild();
   }
 
-  onNew(){
-    this.id=null;
-    this.percentage=0;
+  onNew() {
+    this.id = null;
+    this.percentage = 0;
   }
 
   runStatusUpdate(): void {
     this.musicGeneratorClinet.runStatusUpdate(this.id)
         .subscribe(returnedPercentage => {
           this.percentage = returnedPercentage;
-          if(this.percentage==100)this.subscription.unsubscribe();
+          if (this.percentage === 100) {this.subscription.unsubscribe(); }
         });
   }
 
@@ -53,8 +54,8 @@ export class MusicBuilderComponent implements OnInit {
   }
 
   startUpdateTimer(): void {
-    let timer = Observable.timer(300, 300);
-    this.subscription=timer.subscribe(()=>{
+    const timer = Observable.timer(300, 300);
+    this.subscription = timer.subscribe(() => {
         this.runStatusUpdate();
     });
   }

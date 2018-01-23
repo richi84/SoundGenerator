@@ -1,6 +1,6 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MusicBuilderComponent }      from './music-builder/music-builder.component';
+import { MusicBuilderComponent } from './music-builder/music-builder.component';
 
 const routes: Routes = [
   { path: '', component: MusicBuilderComponent }
