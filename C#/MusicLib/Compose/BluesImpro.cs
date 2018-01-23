@@ -9,6 +9,7 @@ namespace SoundGenerator.Compose
     {
         bool inside = false;
         int zusatz = 0;
+        Tone lastTone;
 
         public BluesImpro(IInstrument instrument, Random rnd, int oktavIndexStart) 
             : base(instrument, rnd)
@@ -52,13 +53,14 @@ namespace SoundGenerator.Compose
                     {
                         nr = tonartOffset + stufenOffset + akkordOffsetList[start] + oktavenOffset + zusatz*12;
 
-                        tonList.Add(
+                        AddToneToList(tonList,
                                     new Tone(
                                         (taktIndex * schlaegeProTakt) * schlaglaenge + index / 3.0 * schlaglaenge,
                                         (taktIndex * schlaegeProTakt) * schlaglaenge + (index + 3) / 3.0 * schlaglaenge,
                                         nr,
                                         Instrument
-                                    )
+                                    ),
+                                    false
                                 );
 
                         index += 1;
@@ -88,10 +90,11 @@ namespace SoundGenerator.Compose
                 }
                 else
                 {
+                    //Pause für langer Ton -> Synkope (20%)
                     if (rnd.Next(5) != 0)
                     {
                         nr = tonartOffset + stufenOffset + akkordOffsetList[rnd.Next(akkordOffsetList.Count())] + oktavenOffset + zusatz * 12;
-                        tonList.Add(
+                        AddToneToList(tonList,
                                 new Tone(
                                     (taktIndex * schlaegeProTakt) * schlaglaenge + index / 3.0 * schlaglaenge,
                                     (taktIndex * schlaegeProTakt) * schlaglaenge + (index + 6) / 3.0 * schlaglaenge,
@@ -103,8 +106,9 @@ namespace SoundGenerator.Compose
 
                     index += 2;
 
+                    //Kurzer Ton
                     nr = tonartOffset + stufenOffset + akkordOffsetList[rnd.Next(akkordOffsetList.Count())] + oktavenOffset + zusatz * 12;
-                    tonList.Add(
+                    AddToneToList(tonList, 
                                 new Tone(
                                     (taktIndex * schlaegeProTakt) * schlaglaenge + index / 3.0 * schlaglaenge,
                                     (taktIndex * schlaegeProTakt) * schlaglaenge + (index + 3) / 3.0 * schlaglaenge,
@@ -119,6 +123,19 @@ namespace SoundGenerator.Compose
             }
 
             return tonList;
+        }
+
+        private void AddToneToList(List<Tone> tonList, Tone tone, bool active=true)
+        {
+            if (rnd.Next(3) == 0 && lastTone != null && active)
+            {
+                lastTone.ToTime = tone.ToTime;
+            }
+            else
+            {
+                tonList.Add(tone);
+                lastTone = tone;
+            }
         }
     }
 }
